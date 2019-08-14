@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WalmartLabs Test</string>
+    <string name="walmart_labs_products">WALMART LABS PRODUCTS</string>
+    <string name="product_rating_label">RATING :" "</string>
+    <string name="review_count_label">REVIEW COUNT :" "</string>
+    <string name="instock_label">AVAILABILITY :" "</string>
+</resources>

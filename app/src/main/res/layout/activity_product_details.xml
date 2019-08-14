@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.walmart.walmartlabstest.viewmodel.ProductDetailsViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ProductsListActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/page_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@{viewModel.productName}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="ELLERTON TV CONSOLE" />
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                    app:layout_constraintStart_toEndOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/page_title"
+                    app:loadImageUrl="@{viewModel.imageUrl}"
+                    app:provider="@{viewModel.glideProvider}" />
+
+                <TextView
+                    android:id="@+id/product_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:scrollbars="vertical"
+                    android:text="@{viewModel.description}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/product_image"
+                    tools:text="The Ellerton media console is well-suited for today's casual lifestyle. Its elegant style and expert construction will make it a centerpiece in any home. Soundly constructed, the Ellerton uses hardwood solids &amp; cherry veneers elegantly finished in a rich dark cherry finish. With ample storage for electronics &amp; media, it also cleverly allows for customization with three choices of interchangeable door panels." />
+
+                <TextView
+                    android:id="@+id/product_rating_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/product_rating_label"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/product_description" />
+
+                <TextView
+                    android:id="@+id/product_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.rating}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/product_rating_label"
+                    app:layout_constraintStart_toEndOf="@+id/product_rating_label"
+                    tools:text="4" />
+
+                <TextView
+                    android:id="@+id/product_review_count_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/review_count_label"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/product_rating" />
+
+                <TextView
+                    android:id="@+id/product_review_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.reviewCount}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/product_review_count_label"
+                    app:layout_constraintStart_toEndOf="@+id/product_review_count_label"
+                    tools:text="10" />
+
+                <TextView
+                    android:id="@+id/product_available_instock_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/instock_label"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/product_review_count"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/product_available_instock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.productAvailability}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/product_available_instock_label"
+                    app:layout_constraintStart_toEndOf="@+id/product_available_instock_label"
+                    tools:text="Available" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.05" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.35" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
